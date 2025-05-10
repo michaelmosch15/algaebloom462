@@ -85,7 +85,5 @@ def export_tiles(image, region, zoom, num_tiles):
                 with Image.open(tif_path) as img:
                     rgb_img = img.convert('RGB')
                     rgb_img.save(jpg_path, 'JPEG')
-                print(f"Tile JPG export complete: {jpg_path}")
-                print(f"Tile TIF export complete: {tif_path}")
             else:
                 print(f"Error: TIF file not found at {tif_path}")

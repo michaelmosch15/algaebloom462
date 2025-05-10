@@ -4,11 +4,13 @@ from tensorflow.keras.optimizers import Adam
 
 def build_dnn(input_dim, num_classes=2):
     model = Sequential([
-        Dense(32, activation='relu', input_dim=input_dim),
+        Dense(128, activation='relu', input_dim=input_dim), # big
         BatchNormalization(),
-        Dense(16, activation='relu'),
-        Dropout(0.5),
+        Dense(64, activation='relu'),
+        Dropout(0.4),
+        Dense(32, activation='relu'),
+        Dropout(0.3),
         Dense(num_classes, activation='softmax')
     ])
-    model.compile(optimizer=Adam(1e-3), loss='categorical_crossentropy', metrics=['accuracy'])
+    model.compile(optimizer=Adam(1e-4), loss='categorical_crossentropy', metrics=['accuracy'])
     return model
